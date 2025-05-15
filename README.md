@@ -10,7 +10,7 @@ dwmbar.sh possibly have bugs, because it uses xsetroot and if you use another di
 
 ## Screenshots
 ![super-dwm debian](/screenshots/super-dwm_general.png)
-
+![super-dwm dunst](/screenshots/super-dwm_dunst.png)
 
 ## Instalation
 
@@ -55,8 +55,10 @@ helps you to install the libraries (from Instalation):
     * rofi (open apps)
     * picom (transparency and animations)
     * arandr (GUI of xrandr to configure multiple monitors)
+    * dunst (for notifications)
     
 These are essential... if I install another pkg or change one of these, I'll upgrade this .md
+
 
 ## HotKeys
 
