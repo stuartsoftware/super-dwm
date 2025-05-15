@@ -3,11 +3,14 @@
 
 It's just my window manager config, enjoy using it, I tried to make minimal customizations
 
+
 ## Observation
 dwmbar.sh possibly have bugs, because it uses xsetroot and if you use another distro that doesn't Arch or Debian, maybe you'll need to modify them yourself.
 
+
 ## Screenshots
 ![super-dwm debian](/screenshots/super-dwm_general.png)
+
 
 ## Instalation
 
@@ -28,10 +31,13 @@ Because, I modified the Makefile to make installation easier.
 On Arch Linux (i use arch btw), you need these for Thunar 
 
 (If you don't install them you won't be able to save files from browser, etc...)
+
 `xdg-desktop-portal xdg-desktop-portal-gtk`
 
 and this to enable thumbnails in Thunar
+
 `tumbler`
+
 
 ## Packages
 
@@ -56,10 +62,10 @@ These are essential... if I install another pkg or change one of these, I'll upg
 
 The same of dwm (RTFM! jk) but I use these (nuts) ones:
 
-*SUPER + SHIFT + Y* closes dwm, or logout (You get back to tty or your dm)
-*SUPER + D* opens rofi
-*SUPER + E* opens Thunar
-*SUPER + ENTER* opens Alacritty 
-*SUPER + P* opens xfce4-screenshooter
+    *SUPER + SHIFT + Y* closes dwm, or logout (You get back to tty or your dm)
+    *SUPER + D* opens rofi
+    *SUPER + E* opens Thunar
+    *SUPER + ENTER* opens Alacritty 
+    *SUPER + P* opens xfce4-screenshooter
 
 I don't use hotkeys for volume rn... I use pavucontrol but you can do it modiying config.h
