@@ -12,6 +12,7 @@ dwmbar.sh possibly have bugs, because it uses xsetroot and if you use another di
 ![super-dwm debian](/screenshots/super-dwm_general.png)
 ![super-dwm dunst](/screenshots/super-dwm_dunst.png)
 
+
 ## Instalation
 
 I'm going to explain to you as you have installed a minimum instalation of a Linux Distro
@@ -24,6 +25,18 @@ After install those libraries you just need to run:
 `sudo make clean install`
 
 Because, I modified the Makefile to make installation easier.
+
+
+## Clone the repository
+
+`git clone https://github.com/stuartsoftware/super-dwm`
+
+### Then, do this
+
+`cd super-dwm`
+`sudo make clean install`
+
+! Pending: Make a script for this.
 
 
 ## Required libraries and dependences
@@ -70,4 +83,21 @@ The same of dwm (RTFM! jk) but I use these (nuts) ones:
     *SUPER + ENTER* opens Alacritty 
     *SUPER + P* opens xfce4-screenshooter
 
-I don't use hotkeys for volume rn... I use pavucontrol but you can do it modiying config.h
+I don't use hotkeys for volume rn... I use pavucontrol but you can do it modiying config.h or using another program
+
+
+## Personalize 
+
+I'll figure out how to have theme on dwm... so the current theme is modified directly in config.h 
+
+### Font
+
+I use JetBrainsMono Nerd Font 
+
+### GTK3 Theme
+
+I use Materia Theme
+
+### Icons
+
+I use WhiteSur (MacOS-like)
