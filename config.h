@@ -23,8 +23,6 @@ static const int topbar = 1;      /* 0 means bottom bar */
 
 static const char *fonts[] = {"JetBrainsMono Nerd Font:size=11"};
 static const char dmenufont[] = "JetBrainsMono Nerd Font:size=11";
-static const char *fonts[] = {"JetBrainsMono Nerd Font:size=12"};
-static const char dmenufont[] = "JetBrainsMono Nerd Font:size=12";
 
 static const char col_gray1[] = "#1f1f1f"; // Stuart theme 1
 static const char col_gray2[] = "#4f4f4f"; // Pending Implement Theme Selector
