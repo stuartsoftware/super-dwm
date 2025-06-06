@@ -2,12 +2,13 @@
 
 while true; do
 
-  # Obtener datos
+  # Obtener fecha y hora
   TIME=$(date "+%I:%M")
   DATE=$(date "+%d-%m-%y")
 
-  # Capturar datos especificos
+  # Obtain hardware information
   MEM=$(free -m | awk 'NR==2{print $3}')
+  CPU=$()
 
   # Esto es para el icono de la distro que este usando...
 
@@ -32,7 +33,7 @@ while true; do
   esac
 
   # Mostrar datos (utiliza xsetroot)
-  xsetroot -name " ${MEM}MB •  $DATE • 󰥔 $TIME • $icon      " 0>/dev/null
+  xsetroot -name " ${MEM}MB •  $DATE • 󰥔 $TIME • $icon  ~  " 0>/dev/null
   sleep 5
 
 done
