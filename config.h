@@ -6,7 +6,7 @@ static const int vertpad 	    = 10; /* vertical padding */
 static const int sidepad	    = 10; /* horizontal padding */
 
 /* appearance */
-static const unsigned int borderpx  = 10;       /* border pixel of windows */
+static const unsigned int borderpx  = 2;       /* border pixel of windows */
 static const unsigned int snap      = 0;        /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -16,8 +16,8 @@ static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_color[]       = "#ed5802";
+static const char col_gray4[]       = "#1f1f1f";
+static const char col_color[]       = "#f1f1f1";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -47,8 +47,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[T]",      tile },    /* first entry is default */
+	{ "[F]",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
@@ -73,8 +73,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("xfce4-screenshooter") },
 	{ MODKEY,			XK_e,	   spawn,	   SHCMD("thunar") },
 	{ MODKEY,			XK_v,	   spawn,	   SHCMD("pavucontrol") },
-	{ MODKEY,			XK_r,      spawn,	   SHCMD("rofi -show drun -show-icons") },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,			XK_d,      spawn,	   SHCMD("rofi -show drun -show-icons") },
+	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -82,12 +82,13 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_u,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+/*	{ MODKEY,                       XK_Return, zoom,           {0} }, */
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,		XK_f,	   fullscreen,     {0} }, /* Fullscreen Patch */
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -105,7 +106,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_c,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_y,      quit,           {0} },
 };
 
 /* button definitions */
