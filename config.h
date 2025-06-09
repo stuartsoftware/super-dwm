@@ -1,11 +1,18 @@
 /* See LICENSE file for copyright and license details. */
 
+/* Vanitygaps Patch */
+
+static const unsigned int gappih    = 10; /* horiz inner gap between windows */
+static const unsigned int gappiv    = 10; /* vert inner gap between windows */
+static const unsigned int gappoh    = 10; /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 10; /* vert outer gap between windows and screen edge */
+
 /* Barpadding Patch */
 
 static const int vertpad 	    = 10; /* vertical padding */
 static const int sidepad	    = 10; /* horizontal padding */
 
-/* appearance */
+/* Vanilla appearance */
 static const unsigned int borderpx  = 2;       /* border pixel of windows */
 static const unsigned int snap      = 0;        /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -13,7 +20,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 
-static const char col_gray1[]       = "#000000";
+static const char col_gray1[]       = "#1f1f1f";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#1f1f1f";
@@ -35,8 +42,6 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            0,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "st",	      NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -47,9 +52,9 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[T]",      tile },    /* first entry is default */
-	{ "[F]",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ " ",      tile },    /* first entry is default */
+	{ " ",      NULL },    /* no layout function means floating behavior */
+	{ " ",      monocle },
 };
 
 /* key definitions */
@@ -70,6 +75,26 @@ static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	/* This hotkeys are from Vanitygaps Patch */
+	/* Commented because I need to remap...
+	{ MODKEY|Mod4Mask,		XK_h,	   incrgaps,	   { .i = +1 } },
+	{ MODKEY|Mod4Mask,		XK_l,	   incrgaps,       { .i = -1 } },
+	{ MODKEY|Mod4Mask|ShiftMask,	XK_h,	   incrogaps,      { .i = +1 } },
+	{ MODKEY|Mod4Mask|ShiftMask,	XK_l,      incrogaps,      { .i = -1 } },
+	{ MODKEY|Mod4Mask|ControlMask,  XK_h,      incrigaps,      { .i = +1 } },
+	{ MODKEY|Mod4Mask|ControlMask,  XK_l,      incrigaps,      { .i = -1 } },
+	{ MODKEY|Mod4Mask,		XK_0,      togglegaps,     {0} },
+	{ MODKEY|Mod4Mask|ShiftMask,	XK_0,	   defaultgaps,    {0} },
+	{ MODKEY,			XK_y,      incrihgaps,     { .i = +1 } },
+	{ MODKEY,			XK_o,	   incrihgaps,     { .i = -1 } },
+	{ MODKEY|ControlMask,		XK_y, 	   incrivgaps,     { .i = +1 } },
+	{ MODKEY|ControlMask,		XK_o,	   incrivgaps,	   { .i = -1 } },
+	{ MODKEY|Mod4Mask,		XK_y,	   incrohgaps,     { .i = +1 } },
+	{ MODKEY|Mod4Mask,		XK_o,	   incrohgaps,	   { .i = -1 } },
+	{ MODKEY|ShiftMask,		XK_y,      incrovgaps,     { .i = +1 } },
+	{ MODKEY|ShiftMask,             XK_o,      incrovgaps,     { .i = -1 } },
+	*/
+
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("xfce4-screenshooter") },
 	{ MODKEY,			XK_e,	   spawn,	   SHCMD("thunar") },
 	{ MODKEY,			XK_v,	   spawn,	   SHCMD("pavucontrol") },
@@ -106,7 +131,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_y,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_Escape,      quit,           {0} },
+	{ MODKEY|ShiftMask, 		XK_Escape,      spawn,		SHCMD("pkill statusbar.sh") },
 };
 
 /* button definitions */
