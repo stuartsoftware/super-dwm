@@ -2,11 +2,15 @@
 
 DIR="$HOME/.config/super-dwm/scripts"
 
+xsetroot -name " you're using super-dwm a config by @stuartsoftware "
+sleep 2
+
 while true; do
   # date
   TIME=$($DIR/clock.sh)
   DATE=$($DIR/date.sh)
   RAM=$($DIR/ram.sh)
+  TEMP=$($DIR/temp.sh)
 
   # linux distro used...
 
@@ -28,6 +32,6 @@ while true; do
 
   # show data with xsetroot
 
-  xsetroot -name " $RAM • $DATE • $TIME • $icon "
+  xsetroot -name " [ $TEMP < $RAM ] • $DATE • $TIME • $icon "
   sleep 1
 done

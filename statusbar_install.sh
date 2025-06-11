@@ -8,6 +8,8 @@ chmod +x $HOME/.config/super-dwm/scripts/*.*
 if [ -f $HOME/.config/super-dwm/scripts/statusbar.sh ]; then
   echo "statusbar.sh updated!"
   pkill statusbar.sh
+  xsetroot -name " statusbar updated! "
+  sleep 2
   exec $HOME/.config/super-dwm/scripts/statusbar.sh &
 fi
 
