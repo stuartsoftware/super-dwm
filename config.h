@@ -20,11 +20,11 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 
-static const char col_gray1[]       = "#1f1f1f";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#1f1f1f";
-static const char col_color[]       = "#f1f1f1";
+static const char col_gray1[]       = "#282828";
+static const char col_gray2[]       = "#3c3836";
+static const char col_gray3[]       = "#ebdbb2";
+static const char col_gray4[]       = "#fbf1c7";
+static const char col_color[]       = "#fe8019";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -40,8 +40,9 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            0,           -1 },
+	/* class      instance       title       tags mask     isfloating   monitor */
+	{ "Gimp",        NULL,       NULL,       0,            0,           -1 },
+	{ "pavucontrol", NULL, 	     NULL,	 0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -95,11 +96,13 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_o,      incrovgaps,     { .i = -1 } },
 	*/
 
-	{ MODKEY,                       XK_p,      spawn,          SHCMD("xfce4-screenshooter") },
-	{ MODKEY,			XK_e,	   spawn,	   SHCMD("thunar") },
-	{ MODKEY,			XK_v,	   spawn,	   SHCMD("pavucontrol") },
+	{ MODKEY,			XK_F11,    spawn,	   SHCMD("xsetroot -name ' brightness decreased ' && brightnessctl set 5%-") },
+	{ MODKEY,			XK_F12,    spawn,          SHCMD("xsetroot -name ' brightness increased ' && brightnessctl set +5%") },
+	{ MODKEY,                       XK_p,      spawn,          SHCMD("xsetroot -name ' screenshooter ' && xfce4-screenshooter") },
+	{ MODKEY,			XK_e,	   spawn,	   SHCMD("xsetroot -name ' thunar - file explorer ' && thunar") },
+	{ MODKEY,			XK_v,	   spawn,	   SHCMD("xsetroot -name ' pavucontrol - volume control ' && pavucontrol") },
 	{ MODKEY,			XK_d,      spawn,	   SHCMD("rofi -show drun -show-icons") },
-	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,             		XK_Return, spawn,          SHCMD("xsetroot -name ' terminal emulator ' && kitty") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -131,8 +134,9 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_Escape,      quit,           {0} },
 	{ MODKEY|ShiftMask, 		XK_Escape,      spawn,		SHCMD("pkill statusbar.sh") },
+	{ MODKEY|ShiftMask,             XK_Escape,      quit,           {0} },
+	
 };
 
 /* button definitions */
