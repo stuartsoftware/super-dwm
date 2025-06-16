@@ -20,11 +20,11 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 
-static const char col_gray1[]       = "#282828";
-static const char col_gray2[]       = "#3c3836";
-static const char col_gray3[]       = "#ebdbb2";
-static const char col_gray4[]       = "#fbf1c7";
-static const char col_color[]       = "#fe8019";
+static const char col_gray1[]       = "#f1f1f1";
+static const char col_gray2[]       = "#5f5f5f";
+static const char col_gray3[]       = "#1f1f1f";
+static const char col_gray4[]       = "#f1f1f1";
+static const char col_color[]       = "#1f1f1f";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -102,7 +102,7 @@ static const Key keys[] = {
 	{ MODKEY,			XK_e,	   spawn,	   SHCMD("xsetroot -name ' thunar - file explorer ' && thunar") },
 	{ MODKEY,			XK_v,	   spawn,	   SHCMD("xsetroot -name ' pavucontrol - volume control ' && pavucontrol") },
 	{ MODKEY,			XK_d,      spawn,	   SHCMD("rofi -show drun -show-icons") },
-	{ MODKEY,             		XK_Return, spawn,          SHCMD("xsetroot -name ' terminal emulator ' && kitty") },
+	{ MODKEY,             		XK_Return, spawn,          SHCMD("xsetroot -name ' terminal emulator ' && alacritty") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
