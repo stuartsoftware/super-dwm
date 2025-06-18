@@ -1,4 +1,6 @@
-!/bin/bash
+#!/bin/bash
+
+echo "Installing and copying files... "
 
 sudo make clean install
 sudo make clean
