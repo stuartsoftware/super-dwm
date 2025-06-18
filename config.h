@@ -72,7 +72,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_color, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -95,14 +95,14 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_y,      incrovgaps,     { .i = +1 } },
 	{ MODKEY|ShiftMask,             XK_o,      incrovgaps,     { .i = -1 } },
 	*/
-
-	{ MODKEY,			XK_F11,    spawn,	   SHCMD("xsetroot -name ' brightness decreased ' && brightnessctl set 5%-") },
-	{ MODKEY,			XK_F12,    spawn,          SHCMD("xsetroot -name ' brightness increased ' && brightnessctl set +5%") },
-	{ MODKEY,                       XK_p,      spawn,          SHCMD("xsetroot -name ' screenshooter ' && xfce4-screenshooter") },
-	{ MODKEY,			XK_e,	   spawn,	   SHCMD("xsetroot -name ' thunar - file explorer ' && thunar") },
-	{ MODKEY,			XK_v,	   spawn,	   SHCMD("xsetroot -name ' pavucontrol - volume control ' && pavucontrol") },
+	{ MODKEY,			XK_F1,	   spawn,	   SHCMD("alacritty -e ~/.config/super-dwm/scripts/superhelp.sh") },
+	{ MODKEY,			XK_F11,    spawn,	   SHCMD("brightnessctl set 5%-") },
+	{ MODKEY,			XK_F12,    spawn,          SHCMD("brightnessctl set +5%") },
+	{ MODKEY,                       XK_p,      spawn,          SHCMD("xfce4-screenshooter") },
+	{ MODKEY,			XK_e,	   spawn,	   SHCMD("thunar") },
+	{ MODKEY,			XK_v,	   spawn,	   SHCMD("pavucontrol") },
 	{ MODKEY,			XK_d,      spawn,	   SHCMD("rofi -show drun -show-icons") },
-	{ MODKEY,             		XK_Return, spawn,          SHCMD("xsetroot -name ' terminal emulator ' && alacritty") },
+	{ MODKEY,             		XK_Return, spawn,          { .v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
