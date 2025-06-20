@@ -44,6 +44,7 @@ super + shift + esc = QUIT DWM (logout you go back to dm or tty)
 super + F11 && super + F12 = brightness (brightnessctl)
 
 
+if you don't use alacritty you can see this help in super-dwm folder, as superhelp.sh
 super-dwm it's just a minimal config of dwm
 https://github.com/stuartsoftware/super-dwm
 "
