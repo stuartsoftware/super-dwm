@@ -51,8 +51,6 @@ and this to enable thumbnails in Thunar
 
 ## Packages
 
-These are the packages I use, use pkg_debian.sh or pkg_arch.sh to install them or DIY (if you use another distro :P) also
-helps you to install the libraries (from Instalation):
 
     * Thunar (File Manager)
     * xfce4-screenshooter (Take Screenshots dah!)
@@ -72,7 +70,7 @@ These are essential... if I install another pkg or change one of these, I'll upg
 
 ## HotKeys
 
-The same of dwm (RTFM! jk) but I use these (nuts) ones:
+The same of dwm but I use these ones:
 
     *SUPER + SHIFT + Y* closes dwm, or logout (You get back to tty or your dm)
     *SUPER + D* opens rofi
