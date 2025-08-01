@@ -1,4 +1,34 @@
 /* See LICENSE file for copyright and license details. */
+/* Theme implementation for Stuart (Just macros lol), just uncomment the theme you want to use */
+
+/* Theme Changer Prototype */
+#define GOLDEN_GREEN
+// #define STUART_DARK
+// #define GOLDEN_GREEN
+
+#ifdef GOLDEN_GREEN
+static const char col_gray1[]       = "#1E1E1E";
+static const char col_gray2[]       = "#2A2A2A";
+static const char col_gray3[]       = "#AAD1FF";
+static const char col_gray4[]       = "#FFD700";
+static const char col_color[]       = "#4C9E7A";
+#endif
+
+#ifdef STUART_LIGHT
+static const char col_gray1[]       = "#f1f1f1";
+static const char col_gray2[]       = "#2A2A2A";
+static const char col_gray3[]       = "#1f1f1f";
+static const char col_gray4[]       = "#f1f1f1";
+static const char col_color[]       = "#1f1f1f";
+#endif
+
+#ifdef STUART_DARK // XD
+static const char col_gray1[]       = "#1f1f1f";
+static const char col_gray2[]       = "#2A2A2A";
+static const char col_gray3[]       = "#f1f1f1";
+static const char col_gray4[]       = "#1f1f1f";
+static const char col_color[]       = "#f1f1f1";
+#endif
 
 /* Vanitygaps Patch */
 
@@ -20,12 +50,6 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 
-static const char col_gray1[]       = "#1E1E1E";
-static const char col_gray2[]       = "#2A2A2A";
-static const char col_gray3[]       = "#AAD1FF";
-static const char col_gray4[]       = "#FFD700";
-static const char col_color[]       = "#4C9E7A";
-
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -42,13 +66,13 @@ static const Rule rules[] = {
 	 */
 	/* class      instance       title       tags mask     isfloating   monitor */
 	{ "Gimp",        NULL,       NULL,       0,            0,           -1 },
-	{ "pavucontrol", NULL, 	     NULL,	 0,            1,           -1 },
+	{ "pavucontrol", NULL, 	     NULL,	     0,            1,           -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const float mfact     	= 0.55; /* factor of master area size [0.05..0.95] */
+static const int nmaster     	= 1;    /* number of clients in master area */
+static const int resizehints 	= 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
@@ -78,31 +102,31 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	/* This hotkeys are from Vanitygaps Patch */
 	/* Commented because I need to remap...
-	{ MODKEY|Mod4Mask,		XK_h,	   incrgaps,	   { .i = +1 } },
-	{ MODKEY|Mod4Mask,		XK_l,	   incrgaps,       { .i = -1 } },
+	{ MODKEY|Mod4Mask,				XK_h,	   incrgaps,	   { .i = +1 } },
+	{ MODKEY|Mod4Mask,				XK_l,	   incrgaps,       { .i = -1 } },
 	{ MODKEY|Mod4Mask|ShiftMask,	XK_h,	   incrogaps,      { .i = +1 } },
 	{ MODKEY|Mod4Mask|ShiftMask,	XK_l,      incrogaps,      { .i = -1 } },
 	{ MODKEY|Mod4Mask|ControlMask,  XK_h,      incrigaps,      { .i = +1 } },
 	{ MODKEY|Mod4Mask|ControlMask,  XK_l,      incrigaps,      { .i = -1 } },
-	{ MODKEY|Mod4Mask,		XK_0,      togglegaps,     {0} },
+	{ MODKEY|Mod4Mask,				XK_0,      togglegaps,     {0} },
 	{ MODKEY|Mod4Mask|ShiftMask,	XK_0,	   defaultgaps,    {0} },
-	{ MODKEY,			XK_y,      incrihgaps,     { .i = +1 } },
-	{ MODKEY,			XK_o,	   incrihgaps,     { .i = -1 } },
-	{ MODKEY|ControlMask,		XK_y, 	   incrivgaps,     { .i = +1 } },
-	{ MODKEY|ControlMask,		XK_o,	   incrivgaps,	   { .i = -1 } },
-	{ MODKEY|Mod4Mask,		XK_y,	   incrohgaps,     { .i = +1 } },
-	{ MODKEY|Mod4Mask,		XK_o,	   incrohgaps,	   { .i = -1 } },
-	{ MODKEY|ShiftMask,		XK_y,      incrovgaps,     { .i = +1 } },
+	{ MODKEY,						XK_y,      incrihgaps,     { .i = +1 } },
+	{ MODKEY,						XK_o,	   incrihgaps,     { .i = -1 } },
+	{ MODKEY|ControlMask,			XK_y, 	   incrivgaps,     { .i = +1 } },
+	{ MODKEY|ControlMask,			XK_o,	   incrivgaps,	   { .i = -1 } },
+	{ MODKEY|Mod4Mask,				XK_y,	   incrohgaps,     { .i = +1 } },
+	{ MODKEY|Mod4Mask,				XK_o,	   incrohgaps,	   { .i = -1 } },
+	{ MODKEY|ShiftMask,				XK_y,      incrovgaps,     { .i = +1 } },
 	{ MODKEY|ShiftMask,             XK_o,      incrovgaps,     { .i = -1 } },
 	*/
-	{ MODKEY,			XK_F1,	   spawn,	   SHCMD("alacritty -e ~/.config/super-dwm/scripts/superhelp.sh") },
-	{ MODKEY,			XK_F11,    spawn,	   SHCMD("brightnessctl set 5%-") },
-	{ MODKEY,			XK_F12,    spawn,          SHCMD("brightnessctl set +5%") },
-	{ MODKEY,                       XK_p,      spawn,          SHCMD("xfce4-screenshooter") },
-	{ MODKEY,			XK_e,	   spawn,	   SHCMD("thunar") },
-	{ MODKEY,			XK_v,	   spawn,	   SHCMD("pavucontrol") },
-	{ MODKEY,			XK_d,      spawn,	   SHCMD("rofi -show drun -show-icons") },
-	{ MODKEY,             		XK_Return, spawn,          { .v = termcmd } },
+	{ MODKEY,						XK_F1,	   spawn,	       SHCMD("alacritty -e ~/.config/super-dwm/scripts/superhelp.sh") },
+	{ MODKEY,						XK_F11,    spawn,	       SHCMD("brightnessctl set 5%-") },
+	{ MODKEY,						XK_F12,    spawn,          SHCMD("brightnessctl set +5%") },
+	{ MODKEY,           			XK_p,      spawn,          SHCMD("xfce4-screenshooter") },
+	{ MODKEY,						XK_e,	   spawn,	   	   SHCMD("thunar") },
+	{ MODKEY,						XK_v,	   spawn,	   	   SHCMD("pavucontrol") },
+	{ MODKEY,						XK_d,      spawn,	   	   SHCMD("rofi -show drun -show-icons") },
+	{ MODKEY,             			XK_Return, spawn,          { .v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -116,7 +140,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY|ShiftMask,		XK_f,	   fullscreen,     {0} }, /* Fullscreen Patch */
+	{ MODKEY|ShiftMask,				XK_f,	   fullscreen,     {0} }, /* Fullscreen Patch */
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -134,8 +158,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask, 		XK_Escape,      spawn,		SHCMD("pkill statusbar.sh") },
-	{ MODKEY|ShiftMask,             XK_Escape,      quit,           {0} },
+	{ MODKEY|ShiftMask, 			XK_Escape,      spawn,	   SHCMD("pkill statusbar.sh") },
+	{ MODKEY|ShiftMask,             XK_Escape,      quit,      {0} },
 	
 };
 
