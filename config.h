@@ -2,9 +2,7 @@
 /* Theme implementation for Stuart (Just macros lol), just uncomment the theme you want to use */
 
 /* Theme Changer Prototype */
-#define GOLDEN_GREEN
-// #define STUART_DARK
-// #define GOLDEN_GREEN
+#define GOLDEN_GREEN // rename it or comment this to change theme
 
 #ifdef GOLDEN_GREEN
 static const char col_gray1[]       = "#1E1E1E";
@@ -31,16 +29,14 @@ static const char col_color[]       = "#f1f1f1";
 #endif
 
 /* Vanitygaps Patch */
-
 static const unsigned int gappih    = 10; /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10; /* vert inner gap between windows */
 static const unsigned int gappoh    = 10; /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 10; /* vert outer gap between windows and screen edge */
 
 /* Barpadding Patch */
-
-static const int vertpad 	    = 10; /* vertical padding */
-static const int sidepad	    = 10; /* horizontal padding */
+static const int vertpad 	    	= 10; /* vertical padding */
+static const int sidepad	    	= 10; /* horizontal padding */
 
 /* Vanilla appearance */
 static const unsigned int borderpx  = 2;       /* border pixel of windows */
@@ -48,7 +44,7 @@ static const unsigned int snap      = 0;        /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char dmenufont[]    	= "monospace:size=10";  // Changed by rofi
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -77,9 +73,9 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ " ",      tile },    /* first entry is default */
-	{ " ",      NULL },    /* no layout function means floating behavior */
-	{ " ",      monocle },
+	{ "",      tile },    /* first entry is default */
+	{ "",      NULL },    /* no layout function means floating behavior */
+	{ "",      monocle },
 };
 
 /* key definitions */
@@ -119,7 +115,10 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,				XK_y,      incrovgaps,     { .i = +1 } },
 	{ MODKEY|ShiftMask,             XK_o,      incrovgaps,     { .i = -1 } },
 	*/
-	{ MODKEY,						XK_F1,	   spawn,	       SHCMD("alacritty -e ~/.config/super-dwm/scripts/superhelp.sh") },
+	{ MODKEY,						XK_F1,	   spawn,	       SHCMD("xfce4-terminal -x ~/.config/super-dwm/scripts/superhelp.sh") },
+	{ MODKEY,						XK_F8,	   spawn,		   SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
+	{ MODKEY,						XK_F9,	   spawn,		   SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1000") },
+	{ MODKEY,						XK_F10,	   spawn,		   SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1000") },
 	{ MODKEY,						XK_F11,    spawn,	       SHCMD("brightnessctl set 5%-") },
 	{ MODKEY,						XK_F12,    spawn,          SHCMD("brightnessctl set +5%") },
 	{ MODKEY,           			XK_p,      spawn,          SHCMD("xfce4-screenshooter") },
